@@ -1,0 +1,191 @@
+:root {
+  --neulandNext_animationTime: 0s; /* * Wird durch JS gesetzt */
+  --neuland_blue: #0b83ff;
+  --progressbar_background: #ccc;
+
+  /* * Zusammen anpassen! Ausporbieren was passt ... */
+  --neulandNext_slideshowImage_maxheight: 750px;
+  --neulandNext_slideshowImage_offset: 4px; /* Nur relevant, wenn in js "const frame = true;" */
+  --neulandNext_slideshowImage_screenshort_borderradius: 20px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+#screen_neulandNext {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#screen_neulandNext > section {
+  width: 35vw;
+  min-width: 500px;
+}
+
+#screen_neulandNext .neulandNext_slideshowContainer {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-top: 50px;
+}
+
+#screen_neulandNext .neulandNext_slideshow {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#screen_neulandNext #neulandNext_slideshowImage_div > img {
+  max-height: var(--neulandNext_slideshowImage_maxheight);
+}
+#screen_neulandNext #neulandNext_frameImg {
+  max-height: calc(
+    var(--neulandNext_slideshowImage_maxheight) + 2 *
+      var(--neulandNext_slideshowImage_offset)
+  ) !important;
+  top: calc(var(--neulandNext_slideshowImage_offset) * -1);
+}
+#screen_neulandNext #neulandNext_slideshowImage {
+  border-radius: var(--neulandNext_slideshowImage_screenshort_borderradius);
+}
+
+#screen_neulandNext #neulandNext_imagetext {
+  font-size: 40px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#screen_neulandNext #neulandNext_progressbarContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#screen_neulandNext .neulandNext_progressbar,
+.neulandNext_progressbar > div,
+.neulandNext_progressbar > div > div {
+  width: 25px;
+  height: 7px;
+  border-radius: 5px;
+  /* transition: background-color 0.5s ease; */
+}
+
+#screen_neulandNext .neulandNext_progressbar {
+  margin: 0px 5px 0px 5px;
+  position: relative;
+  overflow: hidden; /* Somit sind die blauen balken runder */
+}
+#screen_neulandNext .neulandNext_progressbar > div {
+  background-color: var(--progressbar_background);
+  position: absolute;
+}
+
+#screen_neulandNext .neulandNext_progressbar > div > div {
+  position: absolute;
+}
+
+#screen_neulandNext .neulandNext_progressbarCurrent > div > div {
+  background-color: var(--neuland_blue) !important;
+  animation: fillAnimation var(--neulandNext_animationTime) linear forwards;
+}
+
+@keyframes fillAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+#screen_neulandNext #neulandNext_appInfo_imgs > div,
+#neulandNext_appInfo_badge > div {
+  margin: 0px 30px 0px 30px;
+}
+
+#screen_neulandNext #neulandNext_appInfo_imgs > div > img {
+  width: 200px;
+  height: 200px;
+}
+
+#screen_neulandNext #neulandNext_appInfo_imgs > div:nth-child(1) > img {
+  border-radius: 50px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+._3d_druck_workshop_imgs {
+  display: flex;
+}
+._3d_druck_workshop_imgs img {
+  width: 100%;
+}
+._3d_druck_workshop_imgs_side {
+  width: 24vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+._3d_druck_workshop_imgs_center {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+._3d_druck_workshop_imgs_center h2 {
+  margin-top: 90px;
+}
+._3d_druck_workshop_imgs_center > div {
+  display: flex;
+}
+._3d_druck_workshop_imgs_center > div > img {
+  width: 50%;
+}
+
+#screen_neuland {
+  background-color: #222225;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.screen_neuland_div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 650px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+.screen_neuland_div > h3 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+.screen_neuland_div > p {
+  text-align: left;
+  font-size: 20px;
+}
+
+#screen_events h3 {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#screen_events p {
+  font-size: 22px;
+  margin: 10px 0px;
+}
