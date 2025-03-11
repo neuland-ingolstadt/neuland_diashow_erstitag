@@ -19,7 +19,6 @@ const neulandNext_images = [
 ];
 const neulandNext_intervalTime =
   screenIntervalTime / 2 / neulandNext_images.length; // [Sekunden] in url: ?time=5
-const neulandNext_frame = false; // Bilder in iP frame
 
 // Vars
 // =======================================================================
@@ -47,16 +46,10 @@ function init() {
     `${neulandNext_intervalTime}s`
   );
 
-  if (neulandNext_frame) {
-    document
-      .getElementById("neulandNext_frameImg")
-      .style.removeProperty("display");
-  }
-
   neulandNext_summonProgressbars();
 
   neulandNext_progressBars = document.querySelectorAll(
-    ".neulandNext_progressbar"
+    "#screen_neulandNext .progressbar"
   );
 
   // Startet die Slideshow
@@ -115,7 +108,7 @@ function screenPrevious() {
 
 function neulandNext_summonProgressbars() {
   for (let index = 0; index < neulandNext_images.length; index++) {
-    const code = `<div class="neulandNext_progressbar"> <div> <div></div> </div> </div>`;
+    const code = `<div class="progressbar"> <div> <div></div> </div> </div>`;
     document
       .getElementById("neulandNext_progressbarContainer")
       .insertAdjacentHTML("beforeend", code);
@@ -123,7 +116,7 @@ function neulandNext_summonProgressbars() {
 }
 
 function neulandNext_updateSlideshow() {
-  const imageElement = document.getElementById("neulandNext_slideshowImage");
+  const imageElement = document.getElementById("neulandNext_diashow_img");
   const textElement = document.getElementById("neulandNext_imagetext");
 
   // Setzt das neue Bild und den neuen Text
@@ -134,7 +127,7 @@ function neulandNext_updateSlideshow() {
   // Setzt alle Progress Bars zurück
   if (neulandNext_currentIndex == 0) {
     neulandNext_progressBars.forEach((bar, index) => {
-      bar.classList.remove("neulandNext_progressbarCurrent");
+      bar.classList.remove("progressbarCurrent");
     });
 
     void neulandNext_progressBars[0].offsetWidth; // Dies erzwingt einen Reflow und startet die Animation neu
@@ -143,9 +136,9 @@ function neulandNext_updateSlideshow() {
   // Aktualisiert die Progress Bars
   neulandNext_progressBars.forEach((bar, index) => {
     if (index == neulandNext_currentIndex) {
-      bar.classList.add("neulandNext_progressbarCurrent");
+      bar.classList.add("progressbarCurrent");
     } else if (index > neulandNext_currentIndex) {
-      bar.classList.remove("neulandNext_progressbarCurrent");
+      bar.classList.remove("progressbarCurrent");
     }
   });
 
@@ -155,7 +148,7 @@ function neulandNext_updateSlideshow() {
 }
 
 document.addEventListener("keydown", (event) => {
-  console.log(event.key);
+  // console.log(event.key);
 
   //* Number Keys
   if (!isNaN(Number(event.key))) {

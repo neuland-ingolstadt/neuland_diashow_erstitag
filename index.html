@@ -44,35 +44,11 @@
       </section>
 
       <section id="screen_events" class="screen">
-        <div style="text-align: left">
-          <h2>Events SS 25</h2>
-          <h3>Infoveranstaltung</h3>
-          <p>Dienstag, 24. März um 18:00 Uhr in D112</p>
-          <h3>Stammtisch</h3>
-          <p>Jeden Donnerstag um 19:00 Uhr</p>
-          <h3>Spieleabend</h3>
-          <p>Ein Mal im Monat um 19:00 Uhr</p>
-          <h3>LAN-Party mit HGI</h3>
-          <!-- <p>(tba)</p> -->
-          <h3>Docker-Workshop: Teil 2</h3>
-          <!-- <p>(tba)</p> -->
-          <h3>Cookie Talks</h3>
-          <!-- <p>(tba)</p> -->
-          <h3>3D-Druck-Workshop</h3>
-          <!-- <p>(tba)</p> -->
-          <h3>App Hackathon</h3>
-          <!-- <p>(tba)</p> -->
-          <h3>LaTeX Workshop</h3>
-          <!-- <p>(tba)</p> -->
-        </div>
-      </section>
-
-      <section id="screen_neulandNext" class="screen">
-        <section id="neulandNext_diashow">
-          <div class="neulandNext_slideshowContainer">
-            <div class="neulandNext_slideshow">
+        <section id="events_diashow">
+          <div class="events_slideshowContainer">
+            <div class="events_slideshow">
               <div
-                id="neulandNext_slideshowImage_div"
+                id="events_slideshowImage_div"
                 style="
                   position: relative;
                   display: flex;
@@ -80,17 +56,55 @@
                   justify-content: center;
                 "
               >
-                <img id="neulandNext_slideshowImage" />
-                <img
-                  id="frame_img"
-                  src="iphone15_frame.png"
-                  style="position: absolute; display: none"
-                />
+                <img id="events_slideshowImage" />
               </div>
 
-              <div id="neulandNext_progressbarContainer"></div>
+              <div id="events_progressbarContainer"></div>
 
-              <p id="neulandNext_imagetext"></p>
+              <p id="events_imagetext"></p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div style="text-align: left">
+            <h2>Events SS 25</h2>
+            <h3>Infoveranstaltung</h3>
+            <p>Dienstag, 24. März um 18:00 Uhr in D112</p>
+            <h3>Stammtisch</h3>
+            <p>Jeden Donnerstag um 19:00 Uhr</p>
+            <h3>Spieleabend</h3>
+            <p>Ein Mal im Monat um 19:00 Uhr</p>
+            <h3>LAN-Party mit HGI</h3>
+            <!-- <p>(tba)</p> -->
+            <h3>Docker-Workshop: Teil 2</h3>
+            <!-- <p>(tba)</p> -->
+            <h3>Cookie Talks</h3>
+            <!-- <p>(tba)</p> -->
+            <h3>3D-Druck-Workshop</h3>
+            <!-- <p>(tba)</p> -->
+            <h3>App Hackathon</h3>
+            <!-- <p>(tba)</p> -->
+            <h3>LaTeX Workshop</h3>
+            <!-- <p>(tba)</p> -->
+          </div>
+        </section>
+      </section>
+
+      <section id="screen_neulandNext" class="screen">
+        <section id="neulandNext_diashow" class="diashow">
+          <div class="container">
+            <div class="container2">
+              <div class="container3">
+                <img id="neulandNext_diashow_img" />
+              </div>
+
+              <div
+                id="neulandNext_progressbarContainer"
+                class="progressbarContainer"
+              ></div>
+
+              <p id="neulandNext_imagetext" class="diashow_text"></p>
             </div>
           </div>
         </section>

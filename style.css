@@ -2,11 +2,6 @@
   --neulandNext_animationTime: 0s; /* * Wird durch JS gesetzt */
   --neuland_blue: #0b83ff;
   --progressbar_background: #ccc;
-
-  /* * Zusammen anpassen! Ausporbieren was passt ... */
-  --neulandNext_slideshowImage_maxheight: 750px;
-  --neulandNext_slideshowImage_offset: 4px; /* Nur relevant, wenn in js "const frame = true;" */
-  --neulandNext_slideshowImage_screenshort_borderradius: 20px;
 }
 
 body {
@@ -24,83 +19,61 @@ h2 {
   font-size: 40px;
 }
 
-#screen_neulandNext {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+.diashow {
 }
-
-#screen_neulandNext > section {
-  width: 35vw;
-  min-width: 500px;
-}
-
-#screen_neulandNext .neulandNext_slideshowContainer {
+.diashow .container {
   width: 80%;
   margin: 0 auto;
   max-width: 800px;
   padding-top: 50px;
 }
-
-#screen_neulandNext .neulandNext_slideshow {
+.diashow .container2 {
   position: relative;
   margin-bottom: 20px;
 }
-
-#screen_neulandNext #neulandNext_slideshowImage_div > img {
-  max-height: var(--neulandNext_slideshowImage_maxheight);
+.diashow .container3 {
+  position: relative;
+  display: flex;
+  position: relative;
+  justify-content: center;
 }
-#screen_neulandNext #neulandNext_frameImg {
-  max-height: calc(
-    var(--neulandNext_slideshowImage_maxheight) + 2 *
-      var(--neulandNext_slideshowImage_offset)
-  ) !important;
-  top: calc(var(--neulandNext_slideshowImage_offset) * -1);
+.diashow .container3 > img {
+  max-height: 750px;
 }
-#screen_neulandNext #neulandNext_slideshowImage {
-  border-radius: var(--neulandNext_slideshowImage_screenshort_borderradius);
-}
-
-#screen_neulandNext #neulandNext_imagetext {
-  font-size: 40px;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-#screen_neulandNext #neulandNext_progressbarContainer {
+.diashow .progressbarContainer {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-
-#screen_neulandNext .neulandNext_progressbar,
-.neulandNext_progressbar > div,
-.neulandNext_progressbar > div > div {
+.progressbar,
+.progressbar > div,
+.progressbar > div > div {
   width: 25px;
   height: 7px;
   border-radius: 5px;
   /* transition: background-color 0.5s ease; */
 }
-
-#screen_neulandNext .neulandNext_progressbar {
+.diashow .diashow_text {
+  font-size: 40px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.diashow .progressbar {
   margin: 0px 5px 0px 5px;
   position: relative;
   overflow: hidden; /* Somit sind die blauen balken runder */
 }
-#screen_neulandNext .neulandNext_progressbar > div {
+.diashow .progressbar > div {
   background-color: var(--progressbar_background);
   position: absolute;
 }
-
-#screen_neulandNext .neulandNext_progressbar > div > div {
+.diashow .progressbar > div > div {
   position: absolute;
 }
-
-#screen_neulandNext .neulandNext_progressbarCurrent > div > div {
+.diashow .progressbarCurrent > div > div {
   background-color: var(--neuland_blue) !important;
   animation: fillAnimation var(--neulandNext_animationTime) linear forwards;
 }
-
 @keyframes fillAnimation {
   from {
     width: 0;
@@ -110,16 +83,24 @@ h2 {
   }
 }
 
+#screen_neulandNext {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#screen_neulandNext > section {
+  width: 35vw;
+  min-width: 500px;
+}
+
 #screen_neulandNext #neulandNext_appInfo_imgs > div,
 #neulandNext_appInfo_badge > div {
   margin: 0px 30px 0px 30px;
 }
-
 #screen_neulandNext #neulandNext_appInfo_imgs > div > img {
   width: 200px;
   height: 200px;
 }
-
 #screen_neulandNext #neulandNext_appInfo_imgs > div:nth-child(1) > img {
   border-radius: 50px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
