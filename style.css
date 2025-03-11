@@ -185,7 +185,9 @@ h2 {
 }
 .screen_neuland_div_center > h3 {
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  text-align: left;
 }
 .screen_neuland_div_center > p {
   text-align: left;
