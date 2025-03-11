@@ -99,9 +99,17 @@ function screenToggleCurrent() {
 function screenIndex_plus() {
   screenIndex = (screenIndex + 1) % screens.length;
 }
+function screenIndex_minus() {
+  screenIndex = (screens.length + screenIndex - 1) % screens.length;
+}
 function screenNext() {
   screenToggleCurrent();
   screenIndex_plus();
+  screenToggleCurrent();
+}
+function screenPrevious() {
+  screenToggleCurrent();
+  screenIndex_minus();
   screenToggleCurrent();
 }
 
@@ -147,11 +155,23 @@ function neulandNext_updateSlideshow() {
 }
 
 document.addEventListener("keydown", (event) => {
-  // console.log(event.key)
+  console.log(event.key);
 
+  //* Number Keys
   if (!isNaN(Number(event.key))) {
     screenToggleCurrent();
     screenIndex = Number(event.key) % screens.length;
     screenToggleCurrent();
+    return;
+  }
+
+  //* Pfeiltasten
+  if (event.key === "ArrowLeft") {
+    screenPrevious();
+    return;
+  }
+  if (event.key === "ArrowRight") {
+    screenNext();
+    return;
   }
 });
