@@ -4,7 +4,7 @@
 
 let language = "de"; // Default festlegen ['de', 'en'] in url: ?lang=en ODER ?language=en
 
-let screenIntervalTime = 30; // [Sekunden]
+let screenIntervalTime = 90; // [Sekunden]
 
 const neulandNext_images = [
   { src: "home.png", text_de: "Home", text_en: "Home" },
