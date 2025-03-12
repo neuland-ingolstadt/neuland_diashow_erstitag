@@ -1,3 +1,9 @@
+// ToDo
+// Die diashow animation reseten, wenn man den screen ändert
+// -- Interval und animation
+
+// Nice To Have: mit Shift und Pfeiltasten durch die Diashowbilder durchwechseln können
+
 // Settings
 // =======================================================================
 // =======================================================================
