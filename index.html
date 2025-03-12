@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body onclick="screenNext()">
+  <body onclick="screenNext_body()">
     <main>
       <section id="screen_neuland" class="screen">
         <!-- <h2>Neuland</h2> -->
@@ -44,29 +44,24 @@
       </section>
 
       <section id="screen_events" class="screen">
-        <section id="events_diashow">
-          <div class="events_slideshowContainer">
-            <div class="events_slideshow">
-              <div
-                id="events_slideshowImage_div"
-                style="
-                  position: relative;
-                  display: flex;
-                  position: relative;
-                  justify-content: center;
-                "
-              >
-                <img id="events_slideshowImage" />
+        <section class="diashow">
+          <div class="container">
+            <div class="container2">
+              <div class="container3">
+                <img id="events_diashow_img" />
               </div>
 
-              <div id="events_progressbarContainer"></div>
+              <div
+                id="events_progressbarContainer"
+                class="progressbarContainer"
+              ></div>
 
-              <p id="events_imagetext"></p>
+              <p id="events_imagetext" class="diashow_text"></p>
             </div>
           </div>
         </section>
 
-        <section>
+        <section class="list">
           <div style="text-align: left">
             <h2>Events SS 25</h2>
             <h3>Infoveranstaltung</h3>
@@ -75,6 +70,7 @@
             <p>Jeden Donnerstag um 19:00 Uhr</p>
             <h3>Spieleabend</h3>
             <p>Ein Mal im Monat um 19:00 Uhr</p>
+            <p>Nächstes Termin am Donnerstag, 27. März um 19:00</p>
             <h3>LAN-Party mit HGI</h3>
             <!-- <p>(tba)</p> -->
             <h3>Docker-Workshop: Teil 2</h3>
@@ -92,7 +88,7 @@
       </section>
 
       <section id="screen_neulandNext" class="screen">
-        <section id="neulandNext_diashow" class="diashow">
+        <section class="diashow">
           <div class="container">
             <div class="container2">
               <div class="container3">
@@ -130,10 +126,10 @@
             style="margin-top: 90px; display: flex; justify-content: center"
           >
             <div>
-              <img src="app_icon.png" />
+              <img src="imgs/app_icon.png" />
             </div>
             <div>
-              <img src="neuland_qr.png" />
+              <img src="imgs/neuland_qr.png" />
             </div>
           </div>
 

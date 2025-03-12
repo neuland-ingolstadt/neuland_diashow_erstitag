@@ -1,5 +1,6 @@
 :root {
   --neulandNext_animationTime: 0s; /* * Wird durch JS gesetzt */
+  --events_animationTime: 0s; /* * Wird durch JS gesetzt */
   --neuland_blue: #0b83ff;
   --progressbar_background: #ccc;
 }
@@ -20,6 +21,7 @@ h2 {
 }
 
 .diashow {
+  margin-top: 50px;
 }
 .diashow .container {
   width: 80%;
@@ -30,6 +32,9 @@ h2 {
 .diashow .container2 {
   position: relative;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .diashow .container3 {
   position: relative;
@@ -39,6 +44,12 @@ h2 {
 }
 .diashow .container3 > img {
   max-height: 750px;
+  border-radius: 10px;
+}
+.diashow .container,
+.diashow .container2,
+.diashow .container3 {
+  width: inherit;
 }
 .diashow .progressbarContainer {
   display: flex;
@@ -57,6 +68,9 @@ h2 {
   font-size: 40px;
   margin-top: 10px;
   font-weight: bold;
+  height: 100px;
+  /* word-break: break-all; */
+  max-width: 350px;
 }
 .diashow .progressbar {
   margin: 0px 5px 0px 5px;
@@ -176,12 +190,27 @@ h2 {
   margin-top: 0px;
 }
 
-#screen_events h3 {
+#screen_events {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+#screen_events #events_diashow_img {
+  min-width: 600px;
+}
+#screen_events .diashow_text {
+  font-size: 35px;
+}
+
+#screen_events .list h2 {
+  margin-top: -80px !important;
+}
+#screen_events .list h3 {
   font-size: 30px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-#screen_events p {
+#screen_events .list p {
   font-size: 22px;
   margin: 10px 0px;
 }

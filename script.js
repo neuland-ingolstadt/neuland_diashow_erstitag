@@ -4,7 +4,7 @@
 
 let language = "de"; // Default festlegen ['de', 'en'] in url: ?lang=en ODER ?language=en
 
-let screenIntervalTime = 90; // [Sekunden]
+let screenIntervalTime = 30; // [Sekunden]
 
 const neulandNext_images = [
   { src: "home.png", text_de: "Home", text_en: "Home" },
@@ -17,18 +17,44 @@ const neulandNext_images = [
   { src: "roomsearch.png", text_de: "Raumsuche", text_en: "Room Search" },
   // {src: "library.png", text_de: "Bibliothek", text_en: "Library"},
 ];
-const neulandNext_intervalTime =
-  screenIntervalTime / 2 / neulandNext_images.length; // [Sekunden] in url: ?time=5
+
+const events_images = [
+  {
+    src: "infoveranstaltung.png",
+    text: "Infoveranstaltung",
+  },
+  { src: "stammtisch.jpg", text: "Stammtisch" },
+  { src: "brettspielabend.jpg", text: "Spieleabend" },
+  {
+    src: "lanparty.jpeg",
+    text: "LAN-Party mit HGI",
+  },
+  {
+    src: "docker.png", //! Logo
+    text: "Docker-Workshop",
+  },
+  { src: "cookietalks.jpeg", text: "Cookie Talks" }, //! bild von Software Testing Workshop
+  {
+    src: "3d_druck_workshop.jpg",
+    text: "3D-Druck-Workshop",
+  },
+  { src: "hackathon.jpeg", text: "App Hackathon" },
+  { src: "latex.png", text: "LaTeX Workshop" }, //! Logo
+];
 
 // Vars
 // =======================================================================
 // =======================================================================
 
+let screenInterval;
 let screens = document.querySelectorAll(".screen");
 let screenIndex = 0;
 
 let neulandNext_currentIndex = 0;
 let neulandNext_progressBars;
+
+let events_currentIndex = 0;
+let events_progressBars;
 
 // functions
 // =======================================================================
@@ -39,22 +65,55 @@ function init() {
 
   screesHideAll();
   screenToggleCurrent();
-  setInterval(screenNext, screenIntervalTime * 1000);
+  setScreenInterval();
 
-  document.documentElement.style.setProperty(
-    "--neulandNext_animationTime",
-    `${neulandNext_intervalTime}s`
-  );
+  //* Diashow Neuland
+  {
+    const wieOftPro_screenIntervalTime = 2;
+    const intervalTime =
+      screenIntervalTime /
+      wieOftPro_screenIntervalTime /
+      neulandNext_images.length;
+    document.documentElement.style.setProperty(
+      "--neulandNext_animationTime",
+      `${intervalTime}s`
+    );
 
-  neulandNext_summonProgressbars();
+    summonProgressbars({
+      count: neulandNext_images.length,
+      id: "neulandNext_progressbarContainer",
+    });
+    neulandNext_progressBars = document.querySelectorAll(
+      "#screen_neulandNext .progressbar"
+    );
 
-  neulandNext_progressBars = document.querySelectorAll(
-    "#screen_neulandNext .progressbar"
-  );
+    // Startet die Slideshow
+    neulandNext_updateSlideshow();
+    setInterval(neulandNext_updateSlideshow, intervalTime * 1000);
+  }
 
-  // Startet die Slideshow
-  neulandNext_updateSlideshow();
-  setInterval(neulandNext_updateSlideshow, neulandNext_intervalTime * 1000);
+  //* Diashow Events
+  {
+    const wieOftPro_screenIntervalTime = 2;
+    const intervalTime =
+      screenIntervalTime / wieOftPro_screenIntervalTime / events_images.length;
+    document.documentElement.style.setProperty(
+      "--events_animationTime",
+      `${intervalTime}s`
+    );
+
+    summonProgressbars({
+      count: events_images.length,
+      id: "events_progressbarContainer",
+    });
+    events_progressBars = document.querySelectorAll(
+      "#screen_events .progressbar"
+    );
+
+    // Startet die Slideshow
+    events_updateSlideshow();
+    setInterval(events_updateSlideshow, intervalTime * 1000);
+  }
 }
 init();
 
@@ -75,6 +134,10 @@ function readUrl() {
     }
   }
 }
+
+// Screens
+// =======================================================================
+// =======================================================================
 
 function screesHideAll() {
   screens.forEach((screen) => {
@@ -105,13 +168,29 @@ function screenPrevious() {
   screenIndex_minus();
   screenToggleCurrent();
 }
+function screenNext_body() {
+  if (window.innerWidth < 1200) {
+    screenNext();
+  }
+}
 
-function neulandNext_summonProgressbars() {
-  for (let index = 0; index < neulandNext_images.length; index++) {
+function setScreenInterval() {
+  screenInterval = setInterval(screenNext, screenIntervalTime * 1000);
+}
+function resetScreenInterval() {
+  clearInterval(screenInterval);
+  setScreenInterval();
+}
+
+// Diashow
+// =======================================================================
+// =======================================================================
+
+function summonProgressbars({ count, id }) {
+  console.log(id);
+  for (let index = 0; index < count; index++) {
     const code = `<div class="progressbar"> <div> <div></div> </div> </div>`;
-    document
-      .getElementById("neulandNext_progressbarContainer")
-      .insertAdjacentHTML("beforeend", code);
+    document.getElementById(id).insertAdjacentHTML("beforeend", code);
   }
 }
 
@@ -146,6 +225,39 @@ function neulandNext_updateSlideshow() {
   neulandNext_currentIndex =
     (neulandNext_currentIndex + 1) % neulandNext_images.length;
 }
+
+function events_updateSlideshow() {
+  const imageElement = document.getElementById("events_diashow_img");
+  const textElement = document.getElementById("events_imagetext");
+
+  // Setzt das neue Bild und den neuen Text
+  imageElement.src = `https://kevinploss.de/neuland_diashow/imgs/events/${events_images[events_currentIndex].src}`;
+  textElement.textContent = events_images[events_currentIndex]["text"];
+
+  // Setzt alle Progress Bars zurück
+  if (events_currentIndex == 0) {
+    events_progressBars.forEach((bar, index) => {
+      bar.classList.remove("progressbarCurrent");
+    });
+
+    void events_progressBars[0].offsetWidth; // Dies erzwingt einen Reflow und startet die Animation neu
+  }
+
+  // Aktualisiert die Progress Bars
+  events_progressBars.forEach((bar, index) => {
+    if (index == events_currentIndex) {
+      bar.classList.add("progressbarCurrent");
+    } else if (index > events_currentIndex) {
+      bar.classList.remove("progressbarCurrent");
+    }
+  });
+
+  events_currentIndex = (events_currentIndex + 1) % events_images.length;
+}
+
+// Input
+// =======================================================================
+// =======================================================================
 
 document.addEventListener("keydown", (event) => {
   // console.log(event.key);
