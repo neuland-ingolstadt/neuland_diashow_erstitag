@@ -245,3 +245,13 @@ h2 {
 .screen_neuland2_div_img > p {
   font-size: 25px;
 }
+
+#screen_hochschulkino h2 {
+  font-size: 60px;
+}
+.screen_hochschulkino_img_wide {
+  width: 97vw;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 25px,
+    rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
