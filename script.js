@@ -13,15 +13,15 @@ let language = "de"; // Default festlegen ['de', 'en'] in url: ?lang=en ODER ?la
 let screenIntervalTime = 90; // [Sekunden]
 
 const neulandNext_images = [
-  { src: "home.png", text_de: "Home", text_en: "Home" },
-  { src: "timetable2.png", text_de: "Stundenplan", text_en: "Timetable" },
-  { src: "timetable.png", text_de: "Stundenplan", text_en: "Timetable" },
-  { src: "map.png", text_de: "Karte", text_en: "Map" },
-  { src: "food.png", text_de: "Essen", text_en: "Food" },
-  { src: "news.png", text_de: "News", text_en: "News" },
-  { src: "events.png", text_de: "Events", text_en: "Events" },
-  { src: "roomsearch.png", text_de: "Raumsuche", text_en: "Room Search" },
-  // {src: "library.png", text_de: "Bibliothek", text_en: "Library"},
+  { src: "home_de.webp", text_de: "Home", text_en: "Home" },
+  { src: "timetable_de.webp", text_de: "Stundenplan", text_en: "Timetable" },
+  { src: "timetable2_de.webp", text_de: "Stundenplan", text_en: "Timetable" },
+  { src: "map_de.webp", text_de: "Karte", text_en: "Map" },
+  { src: "food_de.webp", text_de: "Essen", text_en: "Food" },
+  { src: "news_de.webp", text_de: "News", text_en: "News" },
+  { src: "dates_de.webp", text_de: "Events", text_en: "Events" },
+  { src: "roomsearch_de.webp", text_de: "Raumsuche", text_en: "Room Search" },
+  // {src: "library_de.webp", text_de: "Bibliothek", text_en: "Library"},
 ];
 
 const events_images = [
