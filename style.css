@@ -197,6 +197,7 @@ h2 {
 }
 #screen_events #events_diashow_img {
   min-width: 600px;
+  max-width: 600px;
 }
 #screen_events .diashow_text {
   font-size: 35px;
@@ -249,9 +250,10 @@ h2 {
 #screen_hochschulkino h2 {
   font-size: 60px;
 }
-.screen_hochschulkino_img_wide {
-  width: 97vw;
+.screen_hochschulkino_img {
+  max-width: 97vw;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 25px,
     rgba(0, 0, 0, 0.15) 0px 5px 10px;
+  max-height: 80vh;
 }

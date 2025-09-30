@@ -30,7 +30,7 @@ const events_images = [
     text: "Infoveranstaltung",
   },
   { src: "stammtisch.jpg", text: "Stammtisch" },
-  { src: "brettspielabend.jpg", text: "Spieleabend" },
+  { src: "brettspielabend_20250920.jpeg", text: "Spieleabend" },
   {
     src: "lanparty.jpeg",
     text: "LAN-Party mit HGI",
@@ -45,7 +45,8 @@ const events_images = [
     text: "3D-Druck-Workshop",
   },
   { src: "hackathon.jpeg", text: "App Hackathon" },
-  { src: "latex.png", text: "LaTeX Workshop" }, //! Logo
+  // { src: "latex.png", text: "LaTeX Workshop" }, //! Logo
+  { src: "neuland_ctf_20251206.png", text: "Neuland CTF" }, //! Logo
 ];
 
 // Vars
